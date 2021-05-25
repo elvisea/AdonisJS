@@ -1,0 +1,23 @@
+{
+  "root": [
+    {
+      "methods": [
+        "POST"
+      ],
+      "name": "",
+      "pattern": "/users",
+      "handler": "UsersController.create",
+      "middleware": []
+    },
+    {
+      "methods": [
+        "HEAD",
+        "GET"
+      ],
+      "name": "",
+      "pattern": "/users",
+      "handler": "UsersController.index",
+      "middleware": []
+    }
+  ]
+}
