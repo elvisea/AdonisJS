@@ -1,9 +1,11 @@
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 
 export default class UsersController {
-  public async create({ request }: HttpContextContract) {
-    const data = request.all();
+  public async create({ request, auth }: HttpContextContract) {
+    const { email, password } = request.all();
 
-    return data;
+    const token = await auth.attempt(email, password);
+
+    return token;
   }
 }

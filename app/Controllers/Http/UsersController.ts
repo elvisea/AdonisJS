@@ -3,7 +3,7 @@ import User from "App/Models/User";
 
 export default class UsersController {
   public async store({ request }: HttpContextContract) {
-    const data = request.only(["username", "email", "password"]);
+    const data = request.only(["email", "password"]);
 
     const user = await User.create(data);
 
@@ -23,7 +23,7 @@ export default class UsersController {
   public async update({ request, params }: HttpContextContract) {
     const user = await User.findOrFail(params.id);
 
-    const data = request.only(["username", "email", "password"]);
+    const data = request.only(["email", "password"]);
 
     user.merge(data);
 
